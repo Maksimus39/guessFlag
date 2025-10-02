@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  guessFlag
-//
-//  Created by Максим Минаков on 02.10.2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showingAlert: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button("Show Alert") {
+            showingAlert = true
         }
-        .padding()
+        .alert("Important message", isPresented: $showingAlert){
+            Button("OK", role: .cancel){}
+        } message: {
+            Text("Please read this!")
+        }
     }
 }
 
